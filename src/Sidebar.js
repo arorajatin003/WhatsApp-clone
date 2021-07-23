@@ -10,7 +10,7 @@ import SidebarChat from './SidebarChat';
 import db from './Firebase';
 import {useStateValue} from './stateProvider'
 
-function Sidebar(){
+function Sidebar({view}){
   const [rooms, setRooms]=useState([]);
   const [{user}, dispatch] = useStateValue();
   // const [findRoom, setFindRoom] = useState('');
@@ -43,7 +43,7 @@ function Sidebar(){
 
 
   return(
-    <div className='sidebar'>
+    <div className={!view? 'sidebar':'sidebar_mobile'}>
       <div className='sidebar__header'>
         <Avatar src={user?.photoURL}/>
         <div className='sidebar__headerRight'>

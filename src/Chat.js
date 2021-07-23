@@ -9,7 +9,7 @@ import db from './Firebase'
 import firebase from 'firebase'
 import {useStateValue} from './stateProvider'
 
-function Chat(){
+function Chat({view}){
   const [seed, setSeed]=useState('');
   const [input, setInput]=useState("");
   const {roomId} = useParams();
@@ -49,7 +49,7 @@ function Chat(){
     setInput('')
   }
   return (
-    <div className='chat'>
+    <div className={!view? 'chat':'chat_mobile'}>
       <div className='chat__header'>
         <Avatar src={`https://avatars.dicebear.com/api/male/${roomName}.svg`} />
         <div className='chat__headerContent'>
