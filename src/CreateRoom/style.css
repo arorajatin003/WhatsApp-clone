@@ -1,0 +1,43 @@
+.createRoom{
+    flex: 0.65;
+    display: flex;
+    flex-direction: column;
+}
+.createRoom_header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-bottom: 1px solid lightgrey;
+    font-size: 36px;
+    font-weight: 500;
+}
+.createRoom_body{
+    flex: 1;
+    background-repeat: repeat;
+    background-position: center;
+    padding: 30px;
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
+    background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')
+}
+.createRoom_input_wrapper>label{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    /* identical to box height */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: black;
+}
+.createRoom_input_wrapper>input{
+    width: 100%;
+    margin-top: 10px;
+    height: 40px;
+    padding-left: 20px;
+    background: #ffffff;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+    border-radius: 5px;
+}

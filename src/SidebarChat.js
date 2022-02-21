@@ -3,10 +3,12 @@ import './SidebarChat.css';
 import {Avatar} from '@material-ui/core';
 import db from './Firebase';
 import {Link} from 'react-router-dom'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function SidebarChat({id, name, addNewChat}) {
   const [seed,setSeed]=useState("");
   const [messages, setMessages]=useState([]);
+  const history = useHistory();
 
   useEffect(()=>{
     setSeed(Math.floor(Math.random() * 5000));
@@ -14,14 +16,16 @@ function SidebarChat({id, name, addNewChat}) {
   
 
   const createChat =()=>{
-    const roomName = prompt("Prease enter room name");
+    history.push("/createRoom");
 
-    if(roomName){
-      //do database stuff....
-      db.collection('rooms').add({
-        name:roomName,
-      });
-    }
+    // const roomName = prompt("Prease enter room name");
+
+    // if(roomName){
+    //   //do database stuff....
+    //   db.collection('rooms').add({
+    //     name:roomName,
+    //   });
+    // }
   }
 
   useEffect(() =>{

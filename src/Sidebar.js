@@ -13,19 +13,31 @@ import {useStateValue} from './stateProvider'
 function Sidebar({view}){
   const [rooms, setRooms]=useState([]);
   const [{user}, dispatch] = useStateValue();
-  // const [findRoom, setFindRoom] = useState('');
-  // const [found, setFound] =useState({});
-  //
-  // const searchRoom = (e)=>{
-  //     e.preventDefault()
-  //     setFindRoom()
-  //     const foundRoom = rooms.find(o => o.data.name === findRoom)
-  //     console.log(foundRoom);
-  //     if(foundRoom){
-  //       setFound(foundRoom);
-  //       console.log(found);
-  //     }
-  // }
+  const [findRoom, setFindRoom] = useState('');
+  const [found, setFound] =useState([null,null]);
+  
+  const searchRoom = (e)=>{
+      e.preventDefault()
+      //const foundRoom = rooms.find(o => o.data.name === findRoom)
+      const foundRoom = rooms.find(o => {
+        let str = o.data.name
+        return str.includes(findRoom)
+      })
+      setFindRoom("");
+      //console.log(a);
+      //console.log(foundRoom.data.name);
+      if(foundRoom){
+        let l =[]
+        l[0] = foundRoom.id
+        l[1] = foundRoom.data.name
+        setFound(l);
+        console.log(found);
+        
+      }else{
+        setFound([])
+        console.log("Not found");
+      }
+  }
 
   useEffect(()=>{
     const unsubscribe = db.collection('rooms').onSnapshot(snapshot=>(
@@ -41,6 +53,7 @@ function Sidebar({view}){
     }
   },[])
 
+  
 
   return(
     <div className={!view? 'sidebar':'sidebar_mobile'}>
@@ -62,17 +75,32 @@ function Sidebar({view}){
         <div className='sidebar__container'>
           <form>
             <SearchOutlined />
-            <Input  placeholder='Search or Start New Chat' type='text'   />
+            <Input  
+              value={findRoom}
+              placeholder='Search or Start New Chat' 
+              type='text'  
+              onChange={(e)=>setFindRoom(e.target.value)} 
+            />
+            <button type="submit" onClick={searchRoom} hidden/>
           </form>
         </div>
       </div>
-      <div className='sidebar__chats'>
-        <SidebarChat addNewChat/>
-        
-        {rooms.map(room=>(
+      
+      <SidebarChat addNewChat/>
+        {found[0]!=null ? 
+          (
+          <div className='sidebar__chats'>
+          < SidebarChat key={found[0]} id={found[0]} name={found[1]} />
+          </div>
+          ):(
+          <div className='sidebar__chats'>
+          {rooms.map(room=>(
           <SidebarChat key={room.id} id={room.id} name={room.data.name}/>
-        ))}
-      </div>
+          ))}
+          </div>
+          )
+          
+        }
     </div>
   )
 }
