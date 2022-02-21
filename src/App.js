@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import './App.css';
-import Sidebar from './Sidebar'
-import Chat from './Chat'
-import Login from './Login'
+import Sidebar from './Sidebar';
+import Chat from './Chat';
+import Login from './Login';
 import { BrowserRouter as Router , Route, Link,Switch } from "react-router-dom";
 import {useStateValue} from './stateProvider'
 import CreateRoom from './CreateRoom'
