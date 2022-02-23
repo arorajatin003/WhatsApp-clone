@@ -21,6 +21,9 @@
     overflow-x: hidden;
     background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')
 }
+.createRoom_input_wrapper{
+    margin-bottom: 20px;
+}
 .createRoom_input_wrapper>label{
     font-style: normal;
     font-weight: bold;
@@ -37,7 +40,79 @@
     height: 40px;
     padding-left: 20px;
     background: #ffffff;
-    border: 1px solid lightgray;
+    border: 2px solid rgb(187, 187, 187);
     box-sizing: border-box;
     border-radius: 5px;
+}
+.createRoom_input_bigRadio_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.createRoom_input_bigRadio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 180px;
+    height: 120px;
+
+    background-color: #ffffff;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    /* text-transform: uppercase; */
+    color: black;
+}
+
+.createRoom_input_bigRadio:hover{
+    background-color: #dfdfdf;
+    border: 1px solid rgb(145, 145, 145);
+}
+.createRoom_input_bigRadio_clicked{
+    background-color: rgb(219, 219, 219);
+    border: 1px solid rgb(112, 112, 112);
+}
+
+.members_wrapper{
+    /* height: 30px; */
+    /* width: 100px; */
+    padding: 15px 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    background-color: #dfdfdf;
+    border: 1px solid rgb(145, 145, 145);
+    position: relative;
+    margin: 10px;
+}
+.deleteMember{
+    position: absolute;
+    top:-5px;
+    right: -5px;
+    transform: rotateZ(45deg);
+    /* size: 5; */
+    font-size: 20px;
+    border: 1px solid rgb(145, 145, 145);
+    background-color: black;
+    color: #ffffff;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.membersList{
+    margin-top:15px;
+    display:flex;
+    /* max-width:400px; */
 }
